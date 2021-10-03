@@ -74,7 +74,7 @@ print(" OK\n")
 
 rgw_id = binascii.hexlify(machine.unique_id())
 rgw_id += rgw_id[:4] # Id is on 6 bytes, need 8
-print ("Your Gateway ID", rgw_id)
+print ("Your Gateway ID", rgw_id.decode())
 
 
 # Read the GW config file from Filesystem
@@ -85,7 +85,7 @@ buf_json = json.loads(buf)
 buf_json["gateway_conf"]["gateway_ID"] = rgw_id.decode() # convert in ASCII
 buf = json.dumps(buf_json)
 
-print (buf)
+time.sleep(10)
 
 # Start the Pygate
 machine.pygate_init(buf)
