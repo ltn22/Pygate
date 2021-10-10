@@ -73,7 +73,7 @@ print(" OK\n")
 
 
 rgw_id = binascii.hexlify(machine.unique_id())
-rgw_id += rgw_id[:4] # Id is on 6 bytes, need 8
+rgw_id += b'0000' # Id is on 6 bytes, need 8
 print ("Your Gateway ID", rgw_id.decode())
 
 
